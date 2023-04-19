@@ -24,11 +24,13 @@ def test_filling_out_the_form():
 
     browser.element('#uploadPicture').send_keys(os.getcwd()+"/tests/resources/IMG_4499.jpg")
 
-    browser.element('#currentAddress').type('Moscow')
-    browser.element('#state').click()
-    browser.element('.react-select-3-input').double_click()
-    browser.element('#city').click()
-    browser.element('.react-select-4-input').type('Delhi').press_enter()
+    browser.element('[id=currentAddress]').type('Moscow')
+    # browser.element('#state').click()
+    # browser.all('[id^=react-select][id*=option]').element_by(have.exact_text('Rajasthan')).click()
+    browser.element('[id=react-select-3-input]').type('NCR').press_enter()
+    # browser.element('#city').click()
+    browser.element('[id=react-select-4-input]').type('Delhi').press_enter()
+
 
     browser.element('#submit').press_enter()
 
