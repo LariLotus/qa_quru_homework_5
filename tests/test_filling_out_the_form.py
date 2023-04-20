@@ -24,17 +24,17 @@ def test_filling_out_the_form():
 
     browser.element('#uploadPicture').send_keys(os.getcwd()+"/tests/resources/IMG_4499.jpg")
 
-    browser.element('[id=currentAddress]').type('Moscow')
-    # browser.element('#state').click()
-    # browser.all('[id^=react-select][id*=option]').element_by(have.exact_text('Rajasthan')).click()
-    browser.element('[id=react-select-3-input]').type('NCR').press_enter()
-    # browser.element('#city').click()
-    browser.element('[id=react-select-4-input]').type('Delhi').press_enter()
-
+    browser.element('#currentAddress').type('Moscow')
+    browser.element('#react-select-3-input').type('NCR').press_enter()
+    browser.element('#react-select-4-input').type('Delhi').press_enter()
 
     browser.element('#submit').press_enter()
 
-    browser.all('#userForm').element_by(have.exact_text(
-        'Student name Larisa Badmaeva', 'student Email larilotus12@gmail.com', 'Gender Female', 'Mobile 89022088667',
+    browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
+
+    browser.all('#userForm').element_by(have.exact_texts(
+        'Student name Larisa Badmaeva', 'Student Email larilotus12@gmail.com', 'Gender Female',
+        'Mobile 89022088667',
         'Date of Birth 12 July 1991', 'Subjects Math', 'Hobbies Sports', 'Picture IMG_4499.jpg',
-        'Current Address Moscow', 'State and City NCR Delhi'))
+        'Current Address Moscow', 'State and City NCR Delhi'
+    ))
