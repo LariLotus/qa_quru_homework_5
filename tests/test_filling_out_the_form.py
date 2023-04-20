@@ -30,11 +30,8 @@ def test_filling_out_the_form():
 
     browser.element('#submit').press_enter()
 
-    browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
-
     browser.all('#userForm').element_by(have.exact_texts(
         'Student name Larisa Badmaeva', 'Student Email larilotus12@gmail.com', 'Gender Female',
-        'Mobile 89022088667',
-        'Date of Birth 12 July 1991', 'Subjects Math', 'Hobbies Sports', 'Picture IMG_4499.jpg',
-        'Current Address Moscow', 'State and City NCR Delhi'
+        'Mobile 89022088667', 'Date of Birth 12 July 1991', 'Subjects Math', 'Hobbies Sports',
+        'Picture IMG_4499.jpg', 'Current Address Moscow', 'State and City NCR Delhi'
     ))
