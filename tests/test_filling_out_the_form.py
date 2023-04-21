@@ -3,7 +3,7 @@ import os
 
 
 def test_filling_out_the_form():
-    browser.open_url('https://demoqa.com/automation-practice-form')
+    browser.open_url('/automation-practice-form')
 
     browser.element('#firstName').type('Larisa')
     browser.element('#lastName').type('Badmaeva')
